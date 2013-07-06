@@ -138,10 +138,11 @@ app.get('/packages', function (req, res) {
       log.error(err);
       res.send(500);
     } else {
-      res.json(JSON.stringify(data));
+      res.json(data);
     }
   };
 
+  log.info('GET /packages');
   list(fn);
 });
 
@@ -176,6 +177,7 @@ app.post('/packages', function (req, res) {
     }
   };
 
+  log.info('POST /packages?name=' + data.name + '&' + data.url);
   add(data, fn);
 });
 
@@ -192,13 +194,14 @@ app.get('/packages/:name', function (req, res) {
       res.json(500);
     } else {
 
-      res.json(JSON.stringify(package));
+      res.json(package);
     }
 
   };
 
   var name = req.param('name');
 
+  log.info('GET /packages/' + name);
   byName(name, fn);
 });
 
@@ -211,12 +214,13 @@ app.get('/packages/search/:name', function (req, res) {
       log.error(err);
       res.send(500);
     } else {
-      res.json(JSON.stringify(packages));
+      res.json(packages);
     }
   };
 
   var name = req.param('name');
 
+  log.info('GET /packages/search/' + name);
   searchName(name, fn);
 });
 

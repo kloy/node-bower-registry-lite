@@ -162,7 +162,7 @@ app.post('/packages', function (req, res) {
     if (err == 'url is not correct format') {
       log.error(err);
       res.send(400);
-    } else if ('property missing') {
+    } else if (err == 'property missing') {
       log.error(err);
       res.send(400);
     } else if (err == 'package not unique') {

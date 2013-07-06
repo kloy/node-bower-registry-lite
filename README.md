@@ -1,5 +1,13 @@
 # Bower registry
 
+NodeJS version of twitter's [bower registry](https://github.com/bower/registry).
+This implementation is different from others as it has no database requirement.
+A easy to setup alternative to the other registries out there was needed for
+installing in corporate environment.
+
+## Running
+
+`npm install && node index.js`
 
 ## Create package
 
@@ -9,11 +17,6 @@
 
     curl http://bower.heroku.com/packages/jquery
       {"name":"jquery","url":"git://github.com/jquery/jquery.git"}
-
-## Unregister package
-
-There is no direct way to unregister a package yet. For now, you can [request a
-package be unregistered](https://github.com/bower/bower/issues/120).
 
 ## License
 
